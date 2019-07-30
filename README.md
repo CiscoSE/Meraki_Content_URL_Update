@@ -16,19 +16,19 @@
 
 ## Motivation
 
-Include a short description of the motivation behind the creation and maintenance of the project.  Explain **why** the project exists.
+I wanted to make it easy to add a new "Blocked URL pattern" to a Meraki network Content Filtering policy.
 
 ## Show Me!
 
-What visual, if shown, clearly articulates the impact of what you have created?  In as concise a visualization as possible (code sample, CLI output, animated GIF, or screenshot) show what your project makes possible.
+I'm working on the visual.
 
 ## Features
 
-Include a succinct summary of the features/capabilities of your project.
+This script does the following actions:
 
-- Feature 1
-- Feature 2
-- Feature 3
+- Connect to your Meraki network ID, and obtain the current settings of the Content Filter policy.
+- Prompt for the URL for a new site to be added to the policy.
+- Modify the URL blocking policy, without changing the other policy settings.
 
 ## Technologies & Frameworks Used
 
@@ -36,36 +36,43 @@ This is Cisco Sample Code!  What Cisco and third-party technologies are you work
 
 **Cisco Products & Services:**
 
-- Product
+- Meraki SDK
 - Service
 
 **Third-Party Products & Services:**
 
-- Product
-- Service
-
-**Tools & Frameworks:**
-
-- Framework 1
-- Automation Tool 2
+- os
+- sys
+- json
+- requests
+- click
 
 ## Usage
 
-If people like your project, they will want to use it.  Show them how.
+Run the script, and follow the prompts to add a new URL to the Meraki Content Filter policy.
 
 ## Installation
 
-Provide a step-by-step series of examples and explanations for how to install your project and its dependencies.
+Add the following environment variables to the machine that will run this script:
+
+Variable: "MERAKI_API"
+Value:  Your Meraki Dashboard API key
+
+Variable:  "MERAKI_NET"
+Value:  The network ID for the network that will have rules updated
+
+To determine the Meraki network ID, goto http://postman.meraki.com
 
 ## Authors & Maintainers
 
 Smart people responsible for the creation and maintenance of this project:
 
 - Aaron Davis <aarodavi@cisco.com>
+- Jeffry Handal <jehandal@cisco.com>
 
 ## Credits
 
-Give proper credit.  Inspired by another project or article?  Was your work made easier by a tutorial?  Include links to the people, projects, and resources that were influential in the creation of this project.
+Jeffry challenged me to create this for a customer.  He gets the credit for the inspiration.  Hopefully, he will help me update it with additional functionality.
 
 ## License
 
