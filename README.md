@@ -37,7 +37,6 @@ This is Cisco Sample Code!  What Cisco and third-party technologies are you work
 **Cisco Products & Services:**
 
 - Meraki SDK
-- Service
 
 **Third-Party Products & Services:**
 
