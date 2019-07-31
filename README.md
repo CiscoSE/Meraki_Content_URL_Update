@@ -8,7 +8,7 @@ I wanted to make it easy to add a new "Blocked URL pattern" to a Meraki network 
 
 ## Show Me!
 
-[![View the presentation](https://github.com/CiscoSE/Meraki_Content_URL_Update/tree/master/docs/assets)](https://youtu.be/q9_Uxqu3t-w)
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=q9_Uxqu3t-w" target="_blank"><img src="http://img.youtube.com/vi/q9_Uxqu3t-w/0.jpg" alt="Meraki Content URL Update" width="240" height="180" border="10" /></a>
 
 ## Features
 
