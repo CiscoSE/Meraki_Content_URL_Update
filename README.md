@@ -1,4 +1,4 @@
-# Meraki_Content_URL_Update
+# Meraki Content URL Update
 
 *Add new URL blocking rule to Meraki content filter policy*
 
