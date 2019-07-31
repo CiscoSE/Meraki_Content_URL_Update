@@ -10,7 +10,7 @@ I wanted to make it easy to add a new "Blocked URL pattern" to a Meraki network 
 
 **Sample Video**
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=q9_Uxqu3t-w" target="_blank"><img src="http://img.youtube.com/vi/q9_Uxqu3t-w/0.jpg" alt="Meraki Content URL Update" width="240" height="180" border="10" /></a>
+[![Meraki Content URL Update](http://img.youtube.com/vi/q9_Uxqu3t-w/0.jpg)](http://www.youtube.com/watch?v=q9_Uxqu3t-w)
 
 ## Features
 
