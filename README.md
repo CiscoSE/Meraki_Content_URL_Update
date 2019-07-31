@@ -75,6 +75,6 @@ Code License](./LICENSE).
 
 **ToDo's:**
 
-- [ ] Iterate through all Meraki Network in the Organization and update the new "Blocked URL pattern" in each network.
+- [ ] Iterate through all Meraki networks in the Organization and update the new "Blocked URL pattern" in each network.
 
 ---
