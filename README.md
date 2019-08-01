@@ -4,6 +4,8 @@
 
 ## Published on Cisco Code Exchange
 
+This script is in the review process of being published on Cisco Code Exchange.
+
 [![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/CiscoSE/Meraki_Content_URL_Update)
 
 ## Motivation
