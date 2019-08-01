@@ -2,6 +2,10 @@
 
 *Add new URL blocking rule to Meraki content filter policy*
 
+## Published on Cisco Code Exchange
+
+[![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/CiscoSE/Meraki_Content_URL_Update)
+
 ## Motivation
 
 I wanted to make it easy to add a new "Blocked URL pattern" to a Meraki network Content Filtering policy.
