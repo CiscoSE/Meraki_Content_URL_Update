@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Copyright (c) 2019 Cisco and/or its affiliates.
+Copyright (c) 2020 Cisco and/or its affiliates.
 
 This software is licensed to you under the terms of the Cisco Sample
 Code License, Version 1.1 (the "License"). You may obtain a copy of the
@@ -21,11 +21,9 @@ or implied.
 from __future__ import absolute_import, division, print_function
 
 __author__ = "Aaron Davis <aarodavi@cisco.com>"
-__contributors__ = [
-    "Jeffry Handal <jehandal@cisco.com>"
-]
+__contributors__ = ["Jeffry Handal <jehandal@cisco.com>"]
 __version__ = "0.1.0"
-__copyright__ = "Copyright (c) 2019 Cisco and/or its affiliates."
+__copyright__ = "Copyright (c) 2020 Cisco and/or its affiliates."
 __license__ = "Cisco Sample Code License, Version 1.1"
 
 """
@@ -45,16 +43,17 @@ import os
 import sys
 import json
 import requests
-# import click
 
 from meraki_sdk.meraki_sdk_client import MerakiSdkClient
-from meraki_sdk.models.update_network_content_filtering_model import UpdateNetworkContentFilteringModel
+from meraki_sdk.models.update_network_content_filtering_model import (
+    UpdateNetworkContentFilteringModel,
+)
 from meraki_sdk.exceptions.api_exception import APIException
 from meraki_sdk.exceptions.api_exception import APIException
 
-MERAKI_API = os.environ.get('MERAKI_API')
+MERAKI_API = os.environ.get("MERAKI_API")
 x_cisco_meraki_api_key = MERAKI_API
-MERAKI_NET = os.environ.get('MERAKI_NET')
+MERAKI_NET = os.environ.get("MERAKI_NET")
 
 client = MerakiSdkClient(x_cisco_meraki_api_key)
 
@@ -65,11 +64,15 @@ network_id = MERAKI_NET
 content_filtering_rules_controller = client.content_filtering_rules
 try:
     print("Reading current settings from Meraki Dashboard...\n")
-    result = content_filtering_rules_controller.get_network_content_filtering(network_id)
-    response = json.dumps(result, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': '))
+    result = content_filtering_rules_controller.get_network_content_filtering(
+        network_id
+    )
+    response = json.dumps(
+        result, sort_keys=True, ensure_ascii=False, indent=4, separators=(",", ": ")
+    )
     try:
         print("Backing up current settings to local file...\n")
-        with open('data.json', 'w', encoding='utf-8') as outfile:
+        with open("data.json", "w", encoding="utf-8") as outfile:
             json.dump(response, outfile)
     finally:
         outfile.close()
@@ -77,7 +80,7 @@ except APIException as e:
     print(e)
 
 print("Reading local file...\n")
-with open('data.json', 'r', encoding='utf-8') as f:
+with open("data.json", "r", encoding="utf-8") as f:
     jsonData = json.load(f)
 
 jsonDataS = json.loads(jsonData)
@@ -91,38 +94,41 @@ print("Current content filtering configuration settings: ")
 print("Allowed Url Patterns: %s" % json_allowedUrlPatterns)
 print("Blocked Url Categories: \n")
 for id in json_blockedUrlCategories:
-    print(json.dumps(id['name']))
-print('\n')
+    print(json.dumps(id["name"]))
+print("\n")
 print("Blocked Url Patterns: %s" % json_blockedUrlPatterns)
 print("Url Category List Size: %s" % json_urlCategoryListSize)
-print('\n')
+print("\n")
 
 # Put the list of Categories into a List to maintain existing configuration
 
 Category_List = []
 
 for id in json_blockedUrlCategories:
-    Filter_id = (id['id'])
+    Filter_id = id["id"]
     Category_List.append(Filter_id)
 
 # Prompt for new URL to block
 
 addBlockedUrlPattern = input("Enter the URL to add to the blocked list: ")
-print('\n')
+print("\n")
 
-confirmUrlPattern = input("Are you sure %s should be added to the blocked list? (Y or N) " % addBlockedUrlPattern)
-print('\n')
+confirmUrlPattern = input(
+    "Are you sure %s should be added to the blocked list? (Y or N) "
+    % addBlockedUrlPattern
+)
+print("\n")
 
 if confirmUrlPattern == "Y" or confirmUrlPattern == "y":
     print("Ok. Adding %s to the blocked list" % addBlockedUrlPattern)
-    print('\n')
+    print("\n")
 
     new_add_blockedUrlPatterns = []
     new_add_blockedUrlPatterns.append(addBlockedUrlPattern)
     updated_blockedUrlPatterns = json_blockedUrlPatterns + new_add_blockedUrlPatterns
     print("The new blocked list will be: ")
     print(updated_blockedUrlPatterns)
-    print('\n')
+    print("\n")
 
 else:
     print("Not adding %s to the blocked list!" % addBlockedUrlPattern)
@@ -132,7 +138,7 @@ else:
 
 content_filtering_rules_controller = client.content_filtering_rules
 collect = {}
-collect['network_id'] = network_id
+collect["network_id"] = network_id
 
 update_network_content_filtering = UpdateNetworkContentFilteringModel()
 update_network_content_filtering.allowed_url_patterns = json_allowedUrlPatterns
@@ -142,10 +148,12 @@ update_network_content_filtering.blocked_url_categories = Category_List
 # Although not documented, the following line must exist, or the update fails.
 # The option can be 'fullList', or 'topSites'
 update_network_content_filtering.url_category_list_size = json_urlCategoryListSize
-collect['update_network_content_filtering'] = update_network_content_filtering
+collect["update_network_content_filtering"] = update_network_content_filtering
 
 try:
-    result = content_filtering_rules_controller.update_network_content_filtering(collect)
+    result = content_filtering_rules_controller.update_network_content_filtering(
+        collect
+    )
     print("Update completed...")
 except APIException as e:
     print(e)
