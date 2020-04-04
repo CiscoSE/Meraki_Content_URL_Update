@@ -45,7 +45,7 @@ import os
 import sys
 import json
 import requests
-import click
+# import click
 
 from meraki_sdk.meraki_sdk_client import MerakiSdkClient
 from meraki_sdk.models.update_network_content_filtering_model import UpdateNetworkContentFilteringModel

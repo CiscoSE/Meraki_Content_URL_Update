@@ -1,0 +1,27 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pylint = "*"
+black = "*"
+
+[packages]
+os = "*"
+sys = "*"
+json = "*"
+requests = "*"
+click = "*"
+meraki-sdk-meraki-sdk-client = "*"
+meraki-sdk-models-update-network-content-filtering-model = "*"
+meraki-sdk-exceptions-api-exception = "*"
+meraki-sdk = "*"
+merarki = "*"
+meraki = "*"
+
+[requires]
+python_version = "3.8"
+
+[pipenv]
+allow_prereleases = true
